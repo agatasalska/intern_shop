@@ -13,10 +13,6 @@ class Basket < Handling
     @list = []
   end
 
-  def print_basket
-    p "Basket #{name}:\sname\tprice\tqty\n"
-  end
-
   private
 
   def next_id
