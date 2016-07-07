@@ -18,14 +18,11 @@ class Basket < Handling
     
   end
 
-  def sum
-    net_sum = @list.
-    map(&:price).
-    reduce(0, :+)
+  private
 
-    #gros_sum = net_sum * vat #dokończyć
-
-    #p net_sum
-    #p gros_sum
+  def next_id
+    @@id += 1
   end
+
+  
 end

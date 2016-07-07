@@ -20,7 +20,7 @@ basket.add_to(milk, 1)
 p basket
 p basket.sum
 
-basket.remove_from(cheese, 1)
+basket.remove_from("cheese", 1)
 
 p basket
 p basket.sum

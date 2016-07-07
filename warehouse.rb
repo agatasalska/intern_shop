@@ -13,12 +13,9 @@ class Warehouse < Handling
 		@list = []
 	end
 
-	def add_to_warehouse(product, qty)
-  	qty.to_i.times {@list << product}
-  end
+	private
 
-	def no_product_message
-		
-	end
-
+		def next_id
+    	@@id += 1
+  	end
 end

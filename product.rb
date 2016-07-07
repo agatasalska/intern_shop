@@ -10,4 +10,10 @@ class Product < Handling
     @price = price
     @vat = vat
   end
+
+  private
+
+    def next_id
+      @@id += 1
+    end
 end
