@@ -13,6 +13,19 @@ class Basket < Handling
     @list = []
   end
 
+  def print
+    p "#{@name}\n"
+    p "id\tname\tprice\tqty\n"
+
+    list.each do |p|
+      prod = warehouse.get_product(id)
+      p "#{p[:id]}\t#{prod.name}\t#{prod.price}\t\t#{p[:qty]}\n"
+    end
+
+    sum(true)
+    sum(false)
+  end
+
   private
 
   def next_id
@@ -32,11 +45,16 @@ class Basket < Handling
 
       if gros
         sum += gros_price(product.price, product.vat) * prod[:qty]
-        p "GROS SUM: #{sum}\n"
       else
         sum += product.price * prod[:qty]
-        p " NET SUM: #{sum}\n"
       end
     end
+
+    if gros
+      p "GROS SUM: #{sum}\n"
+    else
+      p " NET SUM: #{sum}\n"
+    end
+
   end
 end
