@@ -1,8 +1,10 @@
 require_relative "./handling"
 
 class Product < Handling
-  @@id = 0
+  
   attr_reader :id, :name, :price, :vat
+
+  @@id = 0
 
   def initialize(name:, price:, vat:)
     @id = next_id
