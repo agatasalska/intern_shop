@@ -1,27 +1,31 @@
 require_relative "./warehouse"
+require_relative "./handling"
 
-class Basket
-  attr_reader :products
+@@id = 0
+
+class Basket < Handling
+  attr_reader :id, :name, :warehouse, :list
 
   def initialize
-    @products = []
+    @id = next_id
+    @name = name
+    @warehouse = warehouse
+    @list = []
   end
 
-  def add_to_basket(product, qty)
-
-  	qty.to_i.times {@products << product}
-
+  def print_basket
+    p "Basket #{name}:\sname\tprice\tqty\n"
+    
   end
 
-  def net_sum
-  	@products.
-  	map(&:price).
-  	reduce(0, :+)
-  end
+  def sum
+    net_sum = @list.
+    map(&:price).
+    reduce(0, :+)
 
-  def remove_from_basket(product, qty)
-  	qty.to_i.times {
-						@products.delete_at(@products.index(product))
-					}
+    #gros_sum = net_sum * vat #dokończyć
+
+    #p net_sum
+    #p gros_sum
   end
 end

@@ -1,15 +1,13 @@
-class Product
-  @@id = 0
-  attr_reader :name, :price
+require_relative "./handling"
 
-  def initialize(name:, price:)
+class Product < Handling
+  @@id = 0
+  attr_reader :id, :name, :price, :vat
+
+  def initialize(name:, price:, vat:)
     @id = next_id
     @name = name
     @price = price
-  end
-
-  private
-  def next_id
-    @@id += 1
+    @vat = vat
   end
 end
