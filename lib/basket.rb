@@ -6,7 +6,7 @@ class Basket < Handling
 
   @@id = 0
 
-  def initialize
+  def initialize(name, warehouse)
     @id = next_id
     @name = name
     @warehouse = warehouse
@@ -15,13 +15,7 @@ class Basket < Handling
 
   def print
     p "#{@name}\n"
-    p "id\tname\tprice\tqty\n"
-
-    list.each do |p|
-      prod = warehouse.get_product(id)
-      p "#{p[:id]}\t#{prod.name}\t#{prod.price}\t\t#{p[:qty]}\n"
-    end
-
+    
     sum(true)
     sum(false)
   end
